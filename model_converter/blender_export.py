@@ -1,11 +1,9 @@
 """
-Blender Python script: Import a model and export as Draco-compressed GLB.
-
-Supports USDZ and GLB/glTF input (the latter for re-compressing FreeCAD output).
-Optionally applies per-part colors from a JSON sidecar (--colors flag).
+Blender Python script: Import GLB from FreeCAD, apply colors, and export
+as Draco-compressed GLB.
 
 Usage (run via Blender's embedded Python):
-    blender --background --python convert_usdz.py -- [--no-draco] [--colors colors.json] input output.glb
+    blender --background --python blender_export.py -- [--no-draco] [--colors colors.json] input.glb output.glb
 """
 
 import bpy
@@ -16,7 +14,7 @@ import json
 
 
 def clean_node_name(name):
-    """Port of rename-glb-nodes.mjs cleanNodeName logic."""
+    """Clean up node names from FreeCAD GLB export."""
     if not name:
         return name
 
@@ -127,7 +125,7 @@ def parse_args():
         sep = sys.argv.index("--")
     except ValueError:
         print("Error: pass arguments after '--'")
-        print("Usage: blender -b -P convert_usdz.py -- [--no-draco] [--colors colors.json] input output.glb")
+        print("Usage: blender -b -P blender_export.py -- [--no-draco] [--colors colors.json] input.glb output.glb")
         sys.exit(1)
 
     args = sys.argv[sep + 1:]
@@ -149,7 +147,7 @@ def parse_args():
 
     if len(paths) < 2:
         print("Error: need input and output paths")
-        print("Usage: blender -b -P convert_usdz.py -- [--no-draco] [--colors colors.json] input output.glb")
+        print("Usage: blender -b -P blender_export.py -- [--no-draco] [--colors colors.json] input.glb output.glb")
         sys.exit(1)
 
     return paths[0], paths[1], no_draco, colors_path
@@ -172,9 +170,7 @@ def main():
         print(f"Error: input file not found: {input_path}")
         sys.exit(1)
 
-    ext = os.path.splitext(input_path)[1].lower()
-
-    print(f"\n--- Model to GLB Converter ---")
+    print(f"\n--- Blender GLB Export ---")
     print(f"Input:  {input_path}")
     print(f"Output: {output_path}")
     print(f"Draco:  {'disabled' if no_draco else 'enabled'}")
@@ -183,16 +179,9 @@ def main():
     # Clear the default scene
     clear_scene()
 
-    # Import based on file type
-    if ext == ".usdz" or ext == ".usdc" or ext == ".usd":
-        print("Importing USD...")
-        bpy.ops.wm.usd_import(filepath=input_path)
-    elif ext in (".glb", ".gltf"):
-        print("Importing glTF...")
-        bpy.ops.import_scene.gltf(filepath=input_path)
-    else:
-        print(f"Error: unsupported format '{ext}'")
-        sys.exit(1)
+    # Import GLB from FreeCAD
+    print("Importing glTF...")
+    bpy.ops.import_scene.gltf(filepath=input_path)
 
     # Clean up object names
     renamed = 0

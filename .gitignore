@@ -14,9 +14,6 @@ models/
 *.glb
 *.step
 *.stp
-*.usdz
-*.usdc
-*.usd
 *.obj
 *.mtl
 
