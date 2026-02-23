@@ -1,0 +1,22 @@
+# Claude Code
+.claude/
+CLAUDE.md
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Large model files (convert locally, don't commit)
+models/
+*.glb
+*.step
+*.stp
+*.usdz
+*.usdc
+*.usd
+*.obj
+*.mtl
+
