@@ -1,12 +1,12 @@
-# PosiViewer3D
+# CADScope
 
-A browser-based 3D viewer for CAD assemblies (Positron 3D printer), built with Three.js. Converts STEP files to Draco-compressed GLB with per-part colors and displays them in an interactive viewer with a scene hierarchy and preset camera views.
+A browser-based 3D Viewer for CAD Assemblies (originally, the Prusawire 3D Printer), built with Three.js. Converts STEP files to Draco-compressed GLB with per-part colors and displays them in an interactive viewer with a scene hierarchy and preset camera views.
 
 ## Viewing
 
-1. Place a GLB file in `models/` (the viewer loads the path set in `posiviewer3d.html`)
+1. Place a GLB file (preferrably draco compressed) in `models/` (the viewer loads the path set in `index.html`)
 2. Serve the project root: `python -m http.server 8000`
-3. Open http://localhost:8000/posiviewer3d.html
+3. Open http://localhost:8000/index.html
 
 ### Controls
 
