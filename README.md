@@ -1,6 +1,11 @@
 # CADScope
 
-A browser-based 3D Viewer for CAD Assemblies (originally, the Prusawire 3D Printer), built with Three.js. Converts STEP files to Draco-compressed GLB with per-part colors and displays them in an interactive viewer with a scene hierarchy and preset camera views.
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Three.js](https://img.shields.io/badge/Three.js-0.161.0-black)
+![Platform](https://img.shields.io/badge/platform-browser-orange)
+
+A browser-based 3D Viewer for CAD Assemblies, built with Three.js. Converts STEP files to Draco-compressed GLB with per-part colors and displays them in an interactive viewer with a scene hierarchy and preset camera views.
 
 ## Viewing
 
