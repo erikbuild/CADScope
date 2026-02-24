@@ -132,6 +132,40 @@ body {
   color: var(--text-primary);
 }
 
+#colorControls {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background: var(--btn-bg);
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.color-row + .color-row {
+  margin-top: 6px;
+}
+
+.color-row label {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.color-row input[type="color"] {
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background: var(--btn-bg);
+  cursor: pointer;
+}
+
 .tree-item {
   padding: 4px 0;
   cursor: pointer;

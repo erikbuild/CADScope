@@ -20,6 +20,30 @@ A browser-based 3D Viewer for CAD Assemblies, built with Three.js. Converts STEP
 - **Scroll** — Zoom
 - **View buttons** (top-right) — Preset angles + zoom
 - **Scene hierarchy** (left sidebar) — Expand/collapse nodes, toggle visibility
+- **Color pickers** (left sidebar) — Change main/accent part colors in real-time (when a color set file exists)
+
+## Color Sets
+
+Color sets let you visualize different color schemes on 3D-printed assemblies by designating parts as "main color" or "accent color" printed parts. Two color pickers appear in the sidebar when a color set file is available.
+
+### Setup
+
+Create a JSON file next to the GLB, named `{model}.colors.json`:
+
+```json
+{
+  "main_color": "#FF6600",
+  "accent_color": "#00AAFF",
+  "main_parts": ["PartNameA", "PartNameB"],
+  "accent_parts": ["PartNameC", "PartNameD"]
+}
+```
+
+For example, `models/Positron_v3.2.2.glb` looks for `models/Positron_v3.2.2.colors.json`.
+
+Part names should match what you see in the sidebar hierarchy. The viewer uses the same name-cleaning logic as the conversion pipeline (strips path prefixes, `.step` suffixes, `(mesh)`/`(group)` suffixes) and will also try matching with trailing numeric suffixes (`-1`, `-2`, etc.) stripped, then fall back to the parent node name.
+
+Models without a `.colors.json` file simply won't show the color pickers — no errors.
 
 ## Converting STEP to GLB
 
@@ -62,5 +86,4 @@ python3 model_converter/extract_step_colors.py input.step /tmp/colors.json
 ### Future Possibilities...
 
 - Would be cool to be able to select an item in the hierarchy and have it highlighted in the render
-- Color Visualizer: Change color of [main] and [accent] parts.
-    - Save configs/combinations?
+- Save color configs/combinations?

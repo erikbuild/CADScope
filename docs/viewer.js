@@ -52,12 +52,146 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.setDRACOLoader(dracoLoader);
 
 let currentModel = null;
+let mainMeshes = [];
+let accentMeshes = [];
+
+// URL query string support
+function modelStem(path) {
+  return path.split('/').pop().replace(/\.glb$/, '');
+}
+
+function updateURL() {
+  const params = new URLSearchParams();
+  const path = document.getElementById('modelSelect').value;
+  params.set('model', modelStem(path));
+  if (document.getElementById('colorControls').style.display !== 'none') {
+    params.set('main', document.getElementById('mainColorPicker').value.slice(1));
+    params.set('accent', document.getElementById('accentColorPicker').value.slice(1));
+  }
+  history.replaceState(null, '', '?' + params.toString());
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const urlModel = urlParams.get('model');
+if (urlModel) {
+  const select = document.getElementById('modelSelect');
+  for (const opt of select.options) {
+    if (modelStem(opt.value) === urlModel) {
+      select.value = opt.value;
+      break;
+    }
+  }
+}
+let urlMainColor = urlParams.get('main') ? '#' + urlParams.get('main') : null;
+let urlAccentColor = urlParams.get('accent') ? '#' + urlParams.get('accent') : null;
+
+function cleanNodeName(name) {
+  if (!name) return '';
+  // Strip path prefixes (keep text after last /)
+  let cleaned = name.includes('/') ? name.substring(name.lastIndexOf('/') + 1) : name;
+  // Remove .step suffix (case-insensitive, preserving -N numeric suffixes)
+  cleaned = cleaned.replace(/\.step/i, '');
+  // Remove (mesh) and (group) suffixes
+  cleaned = cleaned.replace(/\s*\(mesh\)\s*/i, '').replace(/\s*\(group\)\s*/i, '');
+  return cleaned.trim();
+}
+
+function stripNumericSuffix(name) {
+  return name.replace(/-\d+$/, '');
+}
+
+function applyColorSet(colorSet, model) {
+  mainMeshes = [];
+  accentMeshes = [];
+
+  const mainSet = new Set(colorSet.main_parts || []);
+  const accentSet = new Set(colorSet.accent_parts || []);
+  const mainColor = new THREE.Color(colorSet.main_color);
+  const accentColor = new THREE.Color(colorSet.accent_color);
+
+  model.traverse((obj) => {
+    if (!obj.isMesh) return;
+
+    const cleaned = cleanNodeName(obj.name);
+    const stripped = stripNumericSuffix(cleaned);
+    const parentCleaned = obj.parent ? cleanNodeName(obj.parent.name) : '';
+
+    let group = null;
+    if (mainSet.has(cleaned) || mainSet.has(stripped) || mainSet.has(parentCleaned)) {
+      group = 'main';
+    } else if (accentSet.has(cleaned) || accentSet.has(stripped) || accentSet.has(parentCleaned)) {
+      group = 'accent';
+    }
+
+    if (group) {
+      obj.material = obj.material.clone();
+      obj.material.color.copy(group === 'main' ? mainColor : accentColor);
+      (group === 'main' ? mainMeshes : accentMeshes).push(obj);
+    }
+  });
+}
+
+function loadColorSet(path, model) {
+  const colorPath = path.replace(/\.glb$/, '.colors.json');
+  const colorControls = document.getElementById('colorControls');
+  const mainPicker = document.getElementById('mainColorPicker');
+  const accentPicker = document.getElementById('accentColorPicker');
+
+  fetch(colorPath).then((res) => {
+    if (!res.ok) {
+      colorControls.style.display = 'none';
+      updateURL();
+      return;
+    }
+    return res.json();
+  }).then((colorSet) => {
+    if (!colorSet) return;
+    mainPicker.value = colorSet.main_color;
+    accentPicker.value = colorSet.accent_color;
+    applyColorSet(colorSet, model);
+    colorControls.style.display = '';
+
+    // Override with URL colors if present
+    if (urlMainColor) {
+      mainPicker.value = urlMainColor;
+      const mc = new THREE.Color(urlMainColor);
+      mainMeshes.forEach((mesh) => { mesh.material.color.copy(mc); });
+    }
+    if (urlAccentColor) {
+      accentPicker.value = urlAccentColor;
+      const ac = new THREE.Color(urlAccentColor);
+      accentMeshes.forEach((mesh) => { mesh.material.color.copy(ac); });
+    }
+    // Clear URL overrides so subsequent model switches use defaults
+    urlMainColor = null;
+    urlAccentColor = null;
+    updateURL();
+  }).catch(() => {
+    colorControls.style.display = 'none';
+    updateURL();
+  });
+}
+
+document.getElementById('mainColorPicker').addEventListener('input', (e) => {
+  const color = new THREE.Color(e.target.value);
+  mainMeshes.forEach((mesh) => { mesh.material.color.copy(color); });
+  updateURL();
+});
+
+document.getElementById('accentColorPicker').addEventListener('input', (e) => {
+  const color = new THREE.Color(e.target.value);
+  accentMeshes.forEach((mesh) => { mesh.material.color.copy(color); });
+  updateURL();
+});
 
 function loadModel(path) {
   // Remove previous model
   if (currentModel) {
     scene.remove(currentModel);
   }
+
+  // Hide color controls while loading
+  document.getElementById('colorControls').style.display = 'none';
 
   // Show loading overlay
   let overlay = document.getElementById('loadingOverlay');
@@ -82,6 +216,7 @@ function loadModel(path) {
     camera.updateProjectionMatrix();
 
     buildTree(currentModel);
+    loadColorSet(path, currentModel);
     document.getElementById('loadingOverlay').remove();
   }, (progress) => {
     if (progress.total) {
