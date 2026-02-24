@@ -9,7 +9,21 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xFFFFFF);
+
+// Dark mode
+const LIGHT_BG = 0xFFFFFF;
+const DARK_BG = 0x1a1a1a;
+const isDark = localStorage.getItem('darkMode') !== 'false';
+if (isDark) document.body.classList.add('dark');
+scene.background = new THREE.Color(isDark ? DARK_BG : LIGHT_BG);
+
+document.getElementById('darkModeToggle').addEventListener('click', () => {
+  const dark = document.body.classList.toggle('dark');
+  localStorage.setItem('darkMode', dark);
+  scene.background.set(dark ? DARK_BG : LIGHT_BG);
+  document.getElementById('darkModeToggle').innerHTML = dark ? '&#9788;' : '&#9790;';
+});
+document.getElementById('darkModeToggle').innerHTML = isDark ? '&#9788;' : '&#9790;';
 
 const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
 camera.position.set(2, 2, 2);

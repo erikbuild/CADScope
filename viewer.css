@@ -1,7 +1,50 @@
+:root {
+  --bg-primary: rgba(255, 255, 255, 0.95);
+  --bg-secondary: #fff;
+  --text-primary: #000;
+  --text-secondary: #888;
+  --text-muted: #555;
+  --text-disabled: #999;
+  --border-color: #ccc;
+  --border-light: #eee;
+  --border-strong: #333;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+  --btn-bg: white;
+  --btn-border: #666;
+  --btn-hover: #f0f0f0;
+  --btn-active: #e0e0e0;
+  --loading-bg: rgba(255, 255, 255, 0.9);
+  --spinner-border: #ccc;
+  --spinner-top: #333;
+  --toggle-color: #666;
+}
+
+body.dark {
+  --bg-primary: rgba(30, 30, 30, 0.95);
+  --bg-secondary: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #aaa;
+  --text-muted: #bbb;
+  --text-disabled: #666;
+  --border-color: #444;
+  --border-light: #333;
+  --border-strong: #666;
+  --hover-bg: rgba(255, 255, 255, 0.08);
+  --btn-bg: #2a2a2a;
+  --btn-border: #555;
+  --btn-hover: #333;
+  --btn-active: #444;
+  --loading-bg: rgba(30, 30, 30, 0.9);
+  --spinner-border: #555;
+  --spinner-top: #ccc;
+  --toggle-color: #aaa;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   overflow: hidden;
+  color: var(--text-primary);
 }
 
 #viewer {
@@ -18,8 +61,8 @@ body {
   left: 0;
   width: 300px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.95);
-  border-right: 1px solid #ccc;
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
   overflow-y: auto;
   padding: 10px;
   padding-bottom: 40px;
@@ -33,15 +76,15 @@ body {
   width: 300px;
   padding: 8px 10px;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.95);
-  border-right: 1px solid #ccc;
-  border-top: 1px solid #eee;
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-light);
   font-size: 12px;
-  color: #888;
+  color: var(--text-secondary);
 }
 
 #sidebar-footer a {
-  color: #555;
+  color: var(--text-muted);
   text-decoration: none;
 }
 
@@ -49,10 +92,32 @@ body {
   text-decoration: underline;
 }
 
-#sidebar h3 {
+#sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 0 10px 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid var(--border-strong);
+}
+
+#sidebar-header h3 {
+  margin: 0;
+}
+
+#darkModeToggle {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 6px;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+#darkModeToggle:hover {
+  background: var(--hover-bg);
 }
 
 #modelSelect {
@@ -60,9 +125,11 @@ body {
   padding: 6px;
   margin-bottom: 10px;
   font-size: 13px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 3px;
   box-sizing: border-box;
+  background: var(--btn-bg);
+  color: var(--text-primary);
 }
 
 .tree-item {
@@ -72,7 +139,7 @@ body {
 }
 
 .tree-item:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--hover-bg);
 }
 
 .tree-item-content {
@@ -85,7 +152,7 @@ body {
   width: 16px;
   text-align: center;
   font-size: 12px;
-  color: #666;
+  color: var(--toggle-color);
 }
 
 .tree-checkbox {
@@ -109,7 +176,7 @@ body {
 }
 
 .tree-item.hidden .tree-label {
-  color: #999;
+  color: var(--text-disabled);
   text-decoration: line-through;
 }
 
@@ -118,8 +185,8 @@ body {
   top: 10px;
   right: 10px;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid #ccc;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 10px;
   display: grid;
@@ -130,14 +197,15 @@ body {
 #viewControls hr {
   grid-column: span 3;
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--border-color);
   margin: 5px 0;
 }
 
 .view-btn {
   padding: 6px 8px;
-  border: 1px solid #666;
-  background: white;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--text-primary);
   cursor: pointer;
   font-size: 12px;
   line-height: 1.3;
@@ -146,17 +214,17 @@ body {
 }
 
 .view-btn:hover {
-  background: #f0f0f0;
+  background: var(--btn-hover);
 }
 
 .view-btn:active {
-  background: #e0e0e0;
+  background: var(--btn-active);
 }
 
 #loadingOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--loading-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,8 +235,8 @@ body {
 #loadingOverlay .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid #ccc;
-  border-top-color: #333;
+  border: 4px solid var(--spinner-border);
+  border-top-color: var(--spinner-top);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -176,7 +244,7 @@ body {
 #loadingOverlay p {
   margin-top: 16px;
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 @keyframes spin {

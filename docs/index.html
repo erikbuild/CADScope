@@ -7,7 +7,10 @@
 </head>
 <body>
   <div id="sidebar">
-    <h3>CADScope</h3>
+    <div id="sidebar-header">
+      <h3>CADScope</h3>
+      <button id="darkModeToggle" title="Toggle dark mode">&#9790;</button>
+    </div>
     <select id="modelSelect" onchange="loadModel(this.value)">
       <option value="models/Prusawire_2025.B1.glb">Prusawire 2025.B1</option>
       <option value="models/Positron_v3.2.2.glb">Positron v3.2.2</option>
