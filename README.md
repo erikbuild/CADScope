@@ -52,3 +52,10 @@ python3 model_converter/extract_step_colors.py input.step /tmp/colors.json
 | `extract_step_colors.py` | Parses STEP text for color-to-part mappings (Python 3, no dependencies) |
 | `step_to_glb.py` | FreeCAD script: STEP import, tessellation, uncompressed GLB export |
 | `blender_export.py` | Blender script: GLB import, name cleaning, color application, Draco export |
+
+
+### Future Possibilities...
+
+- Would be cool to be able to select an item in the hierarchy and have it highlighted in the render
+- Color Visualizer: Change color of [main] and [accent] parts.
+    - Save configs/combinations?

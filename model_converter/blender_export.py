@@ -62,13 +62,25 @@ def apply_colors(colors_path):
         print("No color data to apply")
         return
 
+    # Keywords in material names that indicate transparency
+    TRANSPARENT_KEYWORDS = ('glass', 'translucent', 'clear', 'transparent')
+    TRANSPARENT_ALPHA = 0.3
+
     # Create one Blender material per unique color
     bl_materials = {}
     for color_name, rgb in materials_data.items():
         mat = bpy.data.materials.new(name=color_name)
-        mat.use_nodes = True
         bsdf = mat.node_tree.nodes["Principled BSDF"]
-        bsdf.inputs["Base Color"].default_value = (rgb[0], rgb[1], rgb[2], 1.0)
+
+        name_lower = color_name.lower()
+        is_transparent = any(kw in name_lower for kw in TRANSPARENT_KEYWORDS)
+
+        if is_transparent:
+            bsdf.inputs["Base Color"].default_value = (rgb[0], rgb[1], rgb[2], TRANSPARENT_ALPHA)
+            bsdf.inputs["Alpha"].default_value = TRANSPARENT_ALPHA
+        else:
+            bsdf.inputs["Base Color"].default_value = (rgb[0], rgb[1], rgb[2], 1.0)
+
         bl_materials[color_name] = mat
 
     # Build lookup: cleaned part name → color name

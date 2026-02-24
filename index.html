@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <div id="sidebar">
+    <h3>CADScope</h3>
+    <select id="modelSelect" onchange="loadModel(this.value)">
+      <option value="/models/Positron_v3.2.2.glb">Positron v3.2.2</option>
+      <option value="/models/Voron_0.2r1.glb">Voron 0.2r1</option>
+      <option value="/models/Voron_2.4r2.glb">Voron 2.4r2</option>
+    </select>
+    <div id="tree"></div>
+  </div>
+  <div id="sidebar-footer">built by <a href="https://github.com/erikbuild" target="_blank">@erikbuild</a></div>
+  <div id="viewControls">
+    <button class="view-btn" onclick="setView('left')">Left<br>◀</button>
+    <button class="view-btn" onclick="setView('right')">Right<br>▶</button>
+    <button class="view-btn" onclick="setView('home')">Home<br>⌂</button>
+    <button class="view-btn" onclick="setView('top')">Top<br>▲</button>
+    <button class="view-btn" onclick="setView('front')">Front<br>◉</button>
+    <button class="view-btn" onclick="setView('iso')">Iso<br>◇</button>
+    <button class="view-btn" onclick="setView('bottom')">Bottom<br>▼</button>
+    <button class="view-btn" onclick="setView('back')">Back<br>◈</button>
+
+    <hr>
+    
+    <button class="view-btn" onclick="zoom(0.2)">Zoom -</button>
+    <button class="view-btn" onclick="resetZoom()">Reset</button>
+    <button class="view-btn" onclick="zoom(-0.2)">Zoom +</button>
+  </div>
+  <div id="loadingOverlay">
+    <div class="spinner"></div>
+    <p id="loadingText">Loading model...</p>
+  </div>
+  <canvas id="viewer"></canvas>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>
