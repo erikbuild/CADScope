@@ -10,7 +10,7 @@ __pycache__/
 *.pyc
 
 # Large model files (convert locally, don't commit)
-models/
+/models/
 *.step
 *.stp
 *.obj
