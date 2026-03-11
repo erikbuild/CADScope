@@ -1,2 +1,0 @@
-*.glb filter=lfs diff=lfs merge=lfs -text
-docs/models/*.glb !filter !diff !merge text=auto
