@@ -82,13 +82,19 @@
 
         <!-- Loading Indicator -->
         <div class="loading-indicator" id="loadingOverlay">
-          <div class="spinner-small"></div>
-          <span id="loadingText">Loading model...</span>
+          <div class="loading-line">
+            <div class="spinner-small"></div>
+            <span id="loadingText">Loading model...</span>
+          </div>
+          <div class="loading-line hidden" id="processingLine">
+            <div class="spinner-small"></div>
+            <span id="processingText"></span>
+          </div>
         </div>
 
         <!-- Attribution -->
         <div class="attribution">
-          <a href="https://github.com/erikbuild/CADScope" target="_blank">CADScope v1.1.0</a> by <a href="https://github.com/erikbuild" target="_blank">@erikbuild</a>
+          <a href="https://github.com/erikbuild/CADScope" target="_blank">CADScope v1.2.0</a> by <a href="https://github.com/erikbuild" target="_blank">@erikbuild</a>
         </div>
       </div>
     </main>

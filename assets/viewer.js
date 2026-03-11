@@ -391,9 +391,11 @@ function loadModel(id) {
   // Show loading indicator
   const overlay = document.getElementById('loadingOverlay');
   const loadingText = document.getElementById('loadingText');
+  const processingLine = document.getElementById('processingLine');
+  const processingText = document.getElementById('processingText');
   overlay.classList.remove('hidden');
-  const loadingPhrase = loadingPhrases[Math.floor(Math.random() * loadingPhrases.length)];
-  loadingText.textContent = loadingPhrase + '...';
+  processingLine.classList.add('hidden');
+  loadingText.textContent = 'Retrieving 3D model...';
 
   gltfLoader.load(entry.model, (gltf) => {
     // A newer load was started — discard this result
@@ -428,7 +430,11 @@ function loadModel(id) {
   }, (progress) => {
     if (progress.total) {
       const pct = Math.min(100, progress.loaded / progress.total * 100).toFixed(0);
-      loadingText.textContent = `${loadingPhrase}... ${pct}%`;
+      loadingText.textContent = `Retrieving 3D model... ${pct}%`;
+      if (pct >= 100 && processingLine.classList.contains('hidden')) {
+        processingText.textContent = loadingPhrases[Math.floor(Math.random() * loadingPhrases.length)] + '...';
+        processingLine.classList.remove('hidden');
+      }
     }
   }, (error) => {
     console.error('Error loading model:', error);

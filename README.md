@@ -1,6 +1,6 @@
 # CADScope
 
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Three.js](https://img.shields.io/badge/Three.js-0.161.0-black)
 ![Platform](https://img.shields.io/badge/platform-browser-orange)
