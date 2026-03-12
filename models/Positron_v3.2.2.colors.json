@@ -496,7 +496,7 @@
         "Heatset_Insert_Brass_M25x4x3_(6)",
         "Heatset_Insert_Brass_M3x4x5"
       ],
-      "metalness": 0.6,
+      "metalness": 0.5,
       "visible": false
     },
     "Opaque Panels": {
