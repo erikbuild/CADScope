@@ -26,6 +26,14 @@ export const models = [
     github_text: "Positron V3.2.2 by Positron3D on GitHub"
   },
   {
+    id: "Positron_v3.2.2-old",
+    name: "Positron v3.2.2-old",
+    model: "models/Positron_v3.2.2-old.glb",
+    colors: "models/Positron_v3.2.2-old.colors.json",
+    github: "https://github.com/Positron3D/Positron",
+    github_text: "Positron V3.2.2-old by Positron3D on GitHub"
+  },
+  {
     id: "Prusawire_2026.R1",
     name: "Prusawire 2026.R1",
     model: "models/Prusawire_2026.R1.glb",
