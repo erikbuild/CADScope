@@ -127,6 +127,10 @@ let selectedTreeItem = null;
 const savedEmissives = new Map();
 const HIGHLIGHT_COLOR = new THREE.Color(0x3388ff);
 
+// Isolation state
+let isolatedObj = null;
+let isolatedTreeItem = null;
+
 function highlightObject(obj) {
   obj.traverse((child) => {
     if (!child.isMesh) return;
@@ -452,6 +456,8 @@ loadModel(modelSelect.value);
 
 function buildTree(sceneRoot, rootLabel) {
   unhighlightObject();
+  isolatedObj = null;
+  isolatedTreeItem = null;
   const treeContainer = document.getElementById('tree');
   treeContainer.innerHTML = '';
 
@@ -460,9 +466,90 @@ function buildTree(sceneRoot, rootLabel) {
     ? sceneRoot.children[0]
     : sceneRoot;
 
+  // Map Three.js objects to their tree item DOM elements for syncing
+  const objToTreeItem = new Map();
+
+  function syncTreeItemVisibility(treeItem, visible) {
+    const cb = treeItem._checkbox;
+    if (cb) {
+      cb.checked = visible;
+      if (visible) {
+        treeItem.classList.remove('hidden');
+      } else {
+        treeItem.classList.add('hidden');
+      }
+    }
+  }
+
+  function isAncestorOf(ancestor, obj) {
+    let current = obj.parent;
+    while (current) {
+      if (current === ancestor) return true;
+      current = current.parent;
+    }
+    return false;
+  }
+
+  function isolateNode(obj, treeItem) {
+    if (isolatedObj === obj) {
+      // Un-isolate: restore everything to visible
+      unisolateAll();
+      return;
+    }
+
+    // Clear previous isolation marker
+    if (isolatedTreeItem) isolatedTreeItem.classList.remove('isolated');
+
+    isolatedObj = obj;
+    isolatedTreeItem = treeItem;
+    treeItem.classList.add('isolated');
+
+    // Walk the entire scene tree and set visibility
+    function setVisibility(node) {
+      const item = objToTreeItem.get(node);
+      if (node === obj || isAncestorOf(obj, node)) {
+        // Descendant of isolated node or the node itself — show
+        node.visible = true;
+        if (item) syncTreeItemVisibility(item, true);
+      } else if (isAncestorOf(node, obj)) {
+        // Ancestor of isolated node — show (so descendants render)
+        node.visible = true;
+        if (item) syncTreeItemVisibility(item, true);
+      } else {
+        // Everything else — hide
+        node.visible = false;
+        if (item) syncTreeItemVisibility(item, false);
+      }
+      if (node.children) {
+        node.children.forEach(child => setVisibility(child));
+      }
+    }
+
+    setVisibility(root);
+  }
+
+  function unisolateAll() {
+    if (isolatedTreeItem) isolatedTreeItem.classList.remove('isolated');
+    isolatedObj = null;
+    isolatedTreeItem = null;
+
+    // Restore all nodes to visible
+    function restoreVisibility(node) {
+      node.visible = true;
+      const item = objToTreeItem.get(node);
+      if (item) syncTreeItemVisibility(item, true);
+      if (node.children) {
+        node.children.forEach(child => restoreVisibility(child));
+      }
+    }
+
+    restoreVisibility(root);
+  }
+
   function createTreeItem(obj, parentElement, depth = 0) {
     const itemDiv = document.createElement('div');
     itemDiv.className = 'tree-item';
+    objToTreeItem.set(obj, itemDiv);
 
     const contentDiv = document.createElement('div');
     contentDiv.className = 'tree-item-content';
@@ -489,6 +576,7 @@ function buildTree(sceneRoot, rootLabel) {
       }
     });
     contentDiv.appendChild(checkbox);
+    itemDiv._checkbox = checkbox;
 
     // Object name — click to highlight in 3D view
     const label = document.createElement('span');
@@ -507,6 +595,17 @@ function buildTree(sceneRoot, rootLabel) {
       }
     });
     contentDiv.appendChild(label);
+
+    // Isolate button — appears on hover, isolates this node
+    const isolateBtn = document.createElement('span');
+    isolateBtn.className = 'tree-isolate-btn';
+    isolateBtn.textContent = '⊚';
+    isolateBtn.title = 'Isolate this node';
+    isolateBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isolateNode(obj, itemDiv);
+    });
+    contentDiv.appendChild(isolateBtn);
 
     itemDiv.appendChild(contentDiv);
 

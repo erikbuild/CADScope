@@ -500,8 +500,11 @@
       "visible": false
     },
     "Opaque Panels": {
-      "color": "#cdcdcd",
-      "parts": [],
+      "color": "#eeeeee",
+      "parts": [
+        "LED_Diffuser_Laser_Cut",
+        "LED_Cluster_Assembly"
+      ],
       "metalness": 0.0,
       "visible": false
     },
