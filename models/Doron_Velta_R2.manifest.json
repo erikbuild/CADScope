@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "glb": "Doron_Velta_R2.glb",
+  "configOptions": {},
+  "parts": [
+    {
+      "id": "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Flat002",
+      "nodes": [
+        "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Flat002"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Flat005",
+      "nodes": [
+        "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Flat005"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Flat008",
+      "nodes": [
+        "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Flat008"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Doron_Velta/Extruders/Bowden_G2SA",
+      "nodes": [
+        "Doron_Velta/Extruders/Bowden_G2SA"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Doron_Velta/Extruders/Flying_G2_WIP",
+      "nodes": [
+        "Doron_Velta/Extruders/Flying_G2_WIP"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Doron_Velta/Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1_(2)",
+      "nodes": [
+        "Doron_Velta/Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1_(2)"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Doron_Velta/Skirts/Bottom_Skirts/Bottom_Skirts_VD",
+      "nodes": [
+        "Doron_Velta/Skirts/Bottom_Skirts/Bottom_Skirts_VD"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD",
+      "nodes": [
+        "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD"
+      ],
+      "hidden": true
+    }
+  ]
+}

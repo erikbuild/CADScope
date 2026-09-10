@@ -24,3 +24,14 @@ See [LICENSE-GPL-3.0.txt](LICENSE-GPL-3.0.txt).
 
 Copyright (c) Millennium Machines
 Source: https://github.com/MillenniumMachines/Milo-V2.0
+
+## Doron Velta (GPL-3.0)
+
+The following model is derived from Doron Velta CAD files, licensed under the
+**GNU General Public License v3.0**.
+See [LICENSE-GPL-3.0.txt](LICENSE-GPL-3.0.txt).
+
+- `Doron_Velta_R2.glb`
+
+Copyright (c) Rogerio Goncalves
+Source: https://github.com/rogerlz/Doron-Velta
