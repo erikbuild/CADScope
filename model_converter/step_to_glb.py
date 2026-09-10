@@ -2,7 +2,10 @@
 FreeCAD Python script: Convert STEP to GLB with full assembly hierarchy.
 
 Usage (run via FreeCAD's CLI):
-    freecadcmd -c "exec(open('step_to_glb.py').read())" -- input.step output.glb
+    freecadcmd -c "exec(open('step_to_glb.py').read())" -- [--y-up] input.step output.glb
+
+--y-up: the STEP was modeled with Y as the vertical axis; the assembly is
+rotated so Y becomes Z before export, matching the Z-up convention the exporter assumes.
 
 Produces an uncompressed GLB that preserves the STEP assembly tree.
 Pipe through Blender for Draco compression (see convert.sh).
@@ -21,22 +24,23 @@ def parse_args():
         sep = sys.argv.index("--")
     except ValueError:
         print("Error: pass arguments after '--'")
-        print("Usage: freecadcmd step_to_glb.py -- input.step output.glb")
+        print("Usage: freecadcmd step_to_glb.py -- [--y-up] input.step output.glb")
         sys.exit(1)
 
     args = sys.argv[sep + 1:]
     paths = [a for a in args if not a.startswith("--")]
+    y_up = "--y-up" in args
 
     if len(paths) < 2:
         print("Error: need input and output paths")
         print("Usage: freecadcmd step_to_glb.py -- input.step output.glb")
         sys.exit(1)
 
-    return os.path.abspath(paths[0]), os.path.abspath(paths[1])
+    return os.path.abspath(paths[0]), os.path.abspath(paths[1]), y_up
 
 
 def main():
-    input_path, output_path = parse_args()
+    input_path, output_path, y_up = parse_args()
 
     if not os.path.isfile(input_path):
         print(f"Error: input file not found: {input_path}")
@@ -70,6 +74,17 @@ def main():
     if not roots:
         roots = [o for o in doc.Objects if not o.InList]
     print(f"Exporting roots: {[r.Label for r in roots]}")
+
+    # The glTF exporter drops the Placement of the root containers it is
+    # handed, so the upright rotation goes on each root's direct children.
+    if y_up:
+        print("Rotating so STEP Y becomes Z (--y-up)")
+        upright = FreeCAD.Placement(FreeCAD.Vector(), FreeCAD.Rotation(FreeCAD.Vector(1, 0, 0), 90))
+        for root in roots:
+            for child in getattr(root, "Group", [root]):
+                if child.TypeId != "App::Origin" and hasattr(child, "Placement"):
+                    child.Placement = upright.multiply(child.Placement)
+        doc.recompute()
 
     # Ensure output directory exists
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)

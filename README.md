@@ -88,7 +88,12 @@ Models converted from third-party CAD carry their original licenses — record a
 
 # Without Draco compression
 ./model_converter/convert.sh --no-draco models/input.step models/output.glb
+
+# STEP modeled with Y as the vertical axis (Fusion "Y up" designs)
+./model_converter/convert.sh --y-up models/input.step models/output.glb
 ```
+
+The converter assumes Z-up STEP input. If the model loads lying on its side, re-run with `--y-up`.
 
 ### Pipeline
 

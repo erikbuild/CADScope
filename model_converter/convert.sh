@@ -10,6 +10,7 @@
 #   ./convert.sh input.step output.glb
 #   ./convert.sh --no-draco input.step output.glb
 #   ./convert.sh --keep-temp input.step output.glb   # saves FreeCAD intermediate as _temp.glb
+#   ./convert.sh --y-up input.step output.glb       # STEP modeled with Y as vertical (Fusion "Y up" designs)
 
 set -euo pipefail
 
@@ -20,17 +21,19 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # Parse flags
 NO_DRACO=""
 KEEP_TEMP=""
+Y_UP=""
 POSITIONAL=()
 for arg in "$@"; do
     case "$arg" in
         --no-draco) NO_DRACO="--no-draco" ;;
         --keep-temp) KEEP_TEMP=1 ;;
+        --y-up) Y_UP="--y-up" ;;
         *) POSITIONAL+=("$arg") ;;
     esac
 done
 
 if [ ${#POSITIONAL[@]} -lt 2 ]; then
-    echo "Usage: $0 [--no-draco] [--keep-temp] <input.step> <output.glb>"
+    echo "Usage: $0 [--no-draco] [--keep-temp] [--y-up] <input.step> <output.glb>"
     exit 1
 fi
 
@@ -72,7 +75,7 @@ fi
 
 echo ""
 echo "=== Stage 2/3: STEP → GLB (FreeCAD) ==="
-"$FREECADCMD" "$SCRIPT_DIR/step_to_glb.py" -- "$INPUT" "$TMPGLB"
+"$FREECADCMD" "$SCRIPT_DIR/step_to_glb.py" -- $Y_UP "$INPUT" "$TMPGLB"
 
 if [ -n "$KEEP_TEMP" ]; then
     TEMP_DEST="$(dirname "$OUTPUT")/_temp.glb"
