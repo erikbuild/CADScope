@@ -483,20 +483,42 @@
     "Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004": {
       "displayName": "Mid Corner Door"
     },
-    "Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009": {
-      "displayName": "Mid Corner Door"
-    },
-    "Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014": {
-      "displayName": "Mid Corner Door"
-    },
     "Corners_Covers/Corner_Cover/Mid_Corners_Hinge": {
-      "displayName": "Mid Corner Hinge"
+      "displayName": "Mid Corner Hinge",
+      "hidden": true
+    },
+    "Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009": {
+      "displayName": "Mid Corner Door",
+      "hidden": true
     },
     "Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001": {
       "displayName": "Mid Corner Hinge"
     },
+    "Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014": {
+      "displayName": "Mid Corner Door",
+      "hidden": true
+    },
     "Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002": {
-      "displayName": "Mid Corner Hinge"
+      "displayName": "Mid Corner Hinge",
+      "hidden": true
+    },
+    "Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004/Mid_Corners_(Mirror)_Door": {
+      "category": "Accent"
+    },
+    "Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004/Mid_Corners_(Mirror)_Door003": {
+      "category": "Accent"
+    },
+    "Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009/Mid_Corners_(Mirror)_Door005": {
+      "category": "Accent"
+    },
+    "Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009/Mid_Corners_(Mirror)_Door008": {
+      "category": "Accent"
+    },
+    "Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014/Mid_Corners_(Mirror)_Door010": {
+      "category": "Accent"
+    },
+    "Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014/Mid_Corners_(Mirror)_Door013": {
+      "category": "Accent"
     },
     "Corners_Covers/Corner_Cover/Mid_Corners_Flat002": {
       "displayName": "Mid Corner Flat",
@@ -507,8 +529,7 @@
       "hidden": true
     },
     "Corners_Covers/Corner_Cover002/Mid_Corners_Flat008": {
-      "displayName": "Mid Corner Flat",
-      "hidden": true
+      "displayName": "Mid Corner Flat"
     },
     "Frame/HFSB5-2020-500-TPW_v1": {
       "displayName": "2020 Extrusion 500mm"

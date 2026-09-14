@@ -4,6 +4,34 @@
   "configOptions": {},
   "parts": [
     {
+      "id": "Corners_Covers/Corner_Cover/Mid_Corners_Hinge",
+      "nodes": [
+        "Corners_Covers/Corner_Cover/Mid_Corners_Hinge"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009",
+      "nodes": [
+        "Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014",
+      "nodes": [
+        "Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014"
+      ],
+      "hidden": true
+    },
+    {
+      "id": "Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002",
+      "nodes": [
+        "Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002"
+      ],
+      "hidden": true
+    },
+    {
       "id": "Corners_Covers/Corner_Cover/Mid_Corners_Flat002",
       "nodes": [
         "Corners_Covers/Corner_Cover/Mid_Corners_Flat002"
@@ -14,13 +42,6 @@
       "id": "Corners_Covers/Corner_Cover001/Mid_Corners_Flat005",
       "nodes": [
         "Corners_Covers/Corner_Cover001/Mid_Corners_Flat005"
-      ],
-      "hidden": true
-    },
-    {
-      "id": "Corners_Covers/Corner_Cover002/Mid_Corners_Flat008",
-      "nodes": [
-        "Corners_Covers/Corner_Cover002/Mid_Corners_Flat008"
       ],
       "hidden": true
     },

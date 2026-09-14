@@ -168,15 +168,26 @@ nodes:
   Corners_Covers/Corner_Cover:      { displayName: "Corner Cover 1" }
   Corners_Covers/Corner_Cover001:   { displayName: "Corner Cover 2" }
   Corners_Covers/Corner_Cover002:   { displayName: "Corner Cover 3" }
+  # Door, hinge and flat are alternative cover styles that occupy the same
+  # space, so each corner shows a different one.
   Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004:     { displayName: "Mid Corner Door" }
-  Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009:  { displayName: "Mid Corner Door" }
-  Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014:  { displayName: "Mid Corner Door" }
-  Corners_Covers/Corner_Cover/Mid_Corners_Hinge:                { displayName: "Mid Corner Hinge" }
+  Corners_Covers/Corner_Cover/Mid_Corners_Hinge:                { displayName: "Mid Corner Hinge", hidden: true }
+  Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009:  { displayName: "Mid Corner Door", hidden: true }
   Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001:          { displayName: "Mid Corner Hinge" }
-  Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002:          { displayName: "Mid Corner Hinge" }
+  Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014:  { displayName: "Mid Corner Door", hidden: true }
+  Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002:          { displayName: "Mid Corner Hinge", hidden: true }
+  # The door sub-parts did not get the a- prefix in the export, so the two
+  # middle slanted panels in each cover are pinned to Accent by path.
+  Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004/Mid_Corners_(Mirror)_Door:        { category: Accent }
+  Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004/Mid_Corners_(Mirror)_Door003:     { category: Accent }
+  Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009/Mid_Corners_(Mirror)_Door005:  { category: Accent }
+  Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009/Mid_Corners_(Mirror)_Door008:  { category: Accent }
+  Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014/Mid_Corners_(Mirror)_Door010:  { category: Accent }
+  Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014/Mid_Corners_(Mirror)_Door013:  { category: Accent }
+
   Corners_Covers/Corner_Cover/Mid_Corners_Flat002:     { displayName: "Mid Corner Flat", hidden: true }
   Corners_Covers/Corner_Cover001/Mid_Corners_Flat005:  { displayName: "Mid Corner Flat", hidden: true }
-  Corners_Covers/Corner_Cover002/Mid_Corners_Flat008:  { displayName: "Mid Corner Flat", hidden: true }
+  Corners_Covers/Corner_Cover002/Mid_Corners_Flat008:  { displayName: "Mid Corner Flat" }
 
   # Frame extrusions.
   Frame/HFSB5-2020-500-TPW_v1:    { displayName: "2020 Extrusion 500mm" }
