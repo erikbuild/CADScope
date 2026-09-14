@@ -4,58 +4,58 @@
   "configOptions": {},
   "parts": [
     {
-      "id": "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Flat002",
+      "id": "Corners_Covers/Corner_Cover/Mid_Corners_Flat002",
       "nodes": [
-        "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Flat002"
+        "Corners_Covers/Corner_Cover/Mid_Corners_Flat002"
       ],
       "hidden": true
     },
     {
-      "id": "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Flat005",
+      "id": "Corners_Covers/Corner_Cover001/Mid_Corners_Flat005",
       "nodes": [
-        "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Flat005"
+        "Corners_Covers/Corner_Cover001/Mid_Corners_Flat005"
       ],
       "hidden": true
     },
     {
-      "id": "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Flat008",
+      "id": "Corners_Covers/Corner_Cover002/Mid_Corners_Flat008",
       "nodes": [
-        "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Flat008"
+        "Corners_Covers/Corner_Cover002/Mid_Corners_Flat008"
       ],
       "hidden": true
     },
     {
-      "id": "Doron_Velta/Extruders/Bowden_G2SA",
+      "id": "Extruders/Bowden_G2SA",
       "nodes": [
-        "Doron_Velta/Extruders/Bowden_G2SA"
+        "Extruders/Bowden_G2SA"
       ],
       "hidden": true
     },
     {
-      "id": "Doron_Velta/Extruders/Flying_G2_WIP",
+      "id": "Extruders/Flying_G2_WIP",
       "nodes": [
-        "Doron_Velta/Extruders/Flying_G2_WIP"
+        "Extruders/Flying_G2_WIP"
       ],
       "hidden": true
     },
     {
-      "id": "Doron_Velta/Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1_(2)",
+      "id": "Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1",
       "nodes": [
-        "Doron_Velta/Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1_(2)"
+        "Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1"
       ],
       "hidden": true
     },
     {
-      "id": "Doron_Velta/Skirts/Bottom_Skirts/Bottom_Skirts_VD",
+      "id": "Skirts/Bottom_Skirts/Bottom_Skirts_VD",
       "nodes": [
-        "Doron_Velta/Skirts/Bottom_Skirts/Bottom_Skirts_VD"
+        "Skirts/Bottom_Skirts/Bottom_Skirts_VD"
       ],
       "hidden": true
     },
     {
-      "id": "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD",
+      "id": "Skirts/Top_Skirts/Top_Skirts_VD",
       "nodes": [
-        "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD"
+        "Skirts/Top_Skirts/Top_Skirts_VD"
       ],
       "hidden": true
     }

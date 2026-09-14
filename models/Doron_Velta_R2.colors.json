@@ -31,6 +31,10 @@
       "metalness": 0.6,
       "showInPicker": false
     },
+    "PEI Sheet": {
+      "color": "#F0B27A",
+      "showInPicker": false
+    },
     "Electronics": {
       "color": "#1d3b2a",
       "metalness": 0.5,
@@ -54,6 +58,14 @@
   },
   "autoAssign": [
     {
+      "match": "a*_x*",
+      "category": "Accent"
+    },
+    {
+      "match": "*_x*",
+      "category": "Main"
+    },
+    {
       "match": "M3*",
       "category": "Hardware"
     },
@@ -67,6 +79,14 @@
     },
     {
       "match": "*_pin*",
+      "category": "Hardware"
+    },
+    {
+      "match": "18mm_Spacer*",
+      "category": "Hardware"
+    },
+    {
+      "match": "Threaded_Spacer_Nut*",
       "category": "Hardware"
     },
     {
@@ -86,7 +106,7 @@
       "category": "Hardware"
     },
     {
-      "match": "Spherical_Bearing_Tie_Rod_End*",
+      "match": "Spherical_Bearing*",
       "category": "Hardware"
     },
     {
@@ -146,10 +166,6 @@
       "category": "Hardware"
     },
     {
-      "match": "Bed",
-      "category": "Bed"
-    },
-    {
       "match": "Bed_Heater*",
       "category": "Black"
     },
@@ -158,11 +174,15 @@
       "category": "Hardware"
     },
     {
+      "match": "Heatsink*",
+      "category": "Hardware"
+    },
+    {
       "match": "Silicone_Sock*",
       "category": "Black"
     },
     {
-      "match": "revostep*",
+      "match": "revo*",
       "category": "Hardware"
     },
     {
@@ -188,6 +208,10 @@
     {
       "match": "Magnets*",
       "category": "Hardware"
+    },
+    {
+      "match": "printed_part*",
+      "category": "Main"
     },
     {
       "match": "pcb*",
@@ -387,446 +411,188 @@
     }
   ],
   "nodes": {
-    "Doron_Velta/Corners_Covers": {
+    "Corners_Covers": {
       "displayName": "Corner Covers"
     },
-    "Doron_Velta/SpoolHolder": {
+    "SpoolHolder": {
       "displayName": "Spool Holder"
     },
-    "Doron_Velta/Corners/Corner": {
+    "Bed/Bed_(3)": {
+      "displayName": "Spring Steel Sheet",
+      "category": "PEI Sheet"
+    },
+    "Bed/Bed_(2)": {
+      "displayName": "Magnetic Sheet",
+      "category": "Black"
+    },
+    "Bed/Bed_(1)": {
+      "displayName": "Bed Plate",
+      "category": "Bed"
+    },
+    "Bed/Bed_Heater": {
+      "displayName": "Bed Heater"
+    },
+    "Bed/Bed_Hardware": {
+      "displayName": "Bed Hardware"
+    },
+    "Corners/Corner": {
       "displayName": "Corner 1"
     },
-    "Doron_Velta/Corners/Corner001": {
+    "Corners/Corner001": {
       "displayName": "Corner 2"
     },
-    "Doron_Velta/Corners/Corner002": {
+    "Corners/Corner002": {
       "displayName": "Corner 3"
     },
-    "Doron_Velta/Corners/Corner/Hardware/D2F-L": {
+    "Corners/Corner/Hardware/D2F-L": {
       "displayName": "Omron D2F-L Endstop"
     },
-    "Doron_Velta/Corners/Corner001/Hardware001/D2F-L001": {
+    "Corners/Corner001/Hardware001/D2F-L001": {
       "displayName": "Omron D2F-L Endstop"
     },
-    "Doron_Velta/Corners/Corner002/Hardware002/D2F-L002": {
+    "Corners/Corner002/Hardware002/D2F-L002": {
       "displayName": "Omron D2F-L Endstop"
     },
-    "Doron_Velta/Corners/Corner/Hardware/MGN9_-_400mm": {
+    "Corners/Corner/Hardware/MGN9_-_400mm": {
       "displayName": "MGN9 Rail 400mm"
     },
-    "Doron_Velta/Corners/Corner001/Hardware001/MGN9_-_400mm001": {
+    "Corners/Corner001/Hardware001/MGN9_-_400mm001": {
       "displayName": "MGN9 Rail 400mm"
     },
-    "Doron_Velta/Corners/Corner002/Hardware002/MGN9_-_400mm002": {
+    "Corners/Corner002/Hardware002/MGN9_-_400mm002": {
       "displayName": "MGN9 Rail 400mm"
     },
-    "Doron_Velta/Corners/Corner/N17_Stepper_Mount/N17_Hardware/17HS19-2004S1_v1_(1)": {
+    "Corners/Corner/N17_Stepper_Mount/N17_Hardware/17HS19-2004S1_v1": {
       "displayName": "NEMA17 Stepper 17HS19-2004S1"
     },
-    "Doron_Velta/Corners/Corner001/N17_Stepper_Mount001/N17_Hardware001/17HS19-2004S1_v1_(1)001": {
+    "Corners/Corner001/N17_Stepper_Mount001/N17_Hardware001/17HS19-2004S1_v002": {
       "displayName": "NEMA17 Stepper 17HS19-2004S1"
     },
-    "Doron_Velta/Corners/Corner002/N17_Stepper_Mount002/N17_Hardware002/17HS19-2004S1_v1_(1)002": {
+    "Corners/Corner002/N17_Stepper_Mount002/N17_Hardware002/17HS19-2004S1_v003": {
       "displayName": "NEMA17 Stepper 17HS19-2004S1"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover": {
+    "Corners_Covers/Corner_Cover": {
       "displayName": "Corner Cover 1"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover001": {
+    "Corners_Covers/Corner_Cover001": {
       "displayName": "Corner Cover 2"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover002": {
+    "Corners_Covers/Corner_Cover002": {
       "displayName": "Corner Cover 3"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004": {
+    "Corners_Covers/Corner_Cover/Mid_Corners_(Mirror)_Door004": {
       "displayName": "Mid Corner Door"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009": {
+    "Corners_Covers/Corner_Cover001/Mid_Corners_(Mirror)_Door009": {
       "displayName": "Mid Corner Door"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014": {
+    "Corners_Covers/Corner_Cover002/Mid_Corners_(Mirror)_Door014": {
       "displayName": "Mid Corner Door"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Hinge": {
+    "Corners_Covers/Corner_Cover/Mid_Corners_Hinge": {
       "displayName": "Mid Corner Hinge"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001": {
+    "Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001": {
       "displayName": "Mid Corner Hinge"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002": {
+    "Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002": {
       "displayName": "Mid Corner Hinge"
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Flat002": {
+    "Corners_Covers/Corner_Cover/Mid_Corners_Flat002": {
       "displayName": "Mid Corner Flat",
       "hidden": true
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Flat005": {
+    "Corners_Covers/Corner_Cover001/Mid_Corners_Flat005": {
       "displayName": "Mid Corner Flat",
       "hidden": true
     },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Flat008": {
+    "Corners_Covers/Corner_Cover002/Mid_Corners_Flat008": {
       "displayName": "Mid Corner Flat",
       "hidden": true
     },
-    "Doron_Velta/Frame/HFSB5-2020-500-TPW_v1": {
+    "Frame/HFSB5-2020-500-TPW_v1": {
       "displayName": "2020 Extrusion 500mm"
     },
-    "Doron_Velta/Frame/HFSB5-2020-500-TPW_v002": {
+    "Frame/HFSB5-2020-500-TPW_v002": {
       "displayName": "2020 Extrusion 500mm"
     },
-    "Doron_Velta/Frame/HFSB5-2020-500-TPW_v003": {
+    "Frame/HFSB5-2020-500-TPW_v003": {
       "displayName": "2020 Extrusion 500mm"
     },
-    "Doron_Velta/Frame/HFSB5-2040-235_v1": {
+    "Frame/HFSB5-2040-235_v1": {
       "displayName": "2040 Extrusion 235mm"
     },
-    "Doron_Velta/Frame/HFSB5-2040-235_v002": {
+    "Frame/HFSB5-2040-235_v002": {
       "displayName": "2040 Extrusion 235mm"
     },
-    "Doron_Velta/Frame/HFSB5-2040-235_v003": {
+    "Frame/HFSB5-2040-235_v003": {
       "displayName": "2040 Extrusion 235mm"
     },
-    "Doron_Velta/Frame/HFSB5-2040-235_v004": {
+    "Frame/HFSB5-2040-235_v004": {
       "displayName": "2040 Extrusion 235mm"
     },
-    "Doron_Velta/Frame/HFSB5-2040-235_v005": {
+    "Frame/HFSB5-2040-235_v005": {
       "displayName": "2040 Extrusion 235mm"
     },
-    "Doron_Velta/Frame/HFSB5-2040-235_v006": {
+    "Frame/HFSB5-2040-235_v006": {
       "displayName": "2040 Extrusion 235mm"
     },
-    "Doron_Velta/Bed/COMPOUND054": {
-      "displayName": "Bed Plate"
-    },
-    "Doron_Velta/Electronics/Top": {
+    "Electronics/Top": {
       "displayName": "Top Electronics"
     },
-    "Doron_Velta/Electronics/Bottom": {
+    "Electronics/Bottom": {
       "displayName": "Bottom Electronics"
     },
-    "BIGTREETECH_MANTA_M5P": {
+    "Electronics/BIGTREETECH_MANTA_M5P": {
       "displayName": "BTT Manta M5P"
     },
-    "Doron_Velta/Electronics/Bottom/Bottom_Electronics_Hardware/UHP-200": {
+    "Electronics/Bottom/Bottom_Electronics_Hardware/UHP-200": {
       "displayName": "Mean Well UHP-200 PSU"
     },
-    "Doron_Velta/Electronics/Bottom/Bottom_Electronics_Hardware/Main_Relay_Body006": {
+    "Electronics/Bottom/Bottom_Electronics_Hardware/Main_Relay_Body006": {
       "displayName": "Main Relay"
     },
-    "Doron_Velta/Electronics/Bottom/UHP-200_Mount002": {
+    "Electronics/Bottom/UHP-200_Mount002": {
       "displayName": "PSU Mount"
     },
-    "Doron_Velta/Extruders/Bowden_G2SA": {
+    "Extruders/Bowden_G2SA": {
       "hidden": true
     },
-    "Doron_Velta/Extruders/Flying_G2_WIP": {
+    "Extruders/Flying_G2_WIP": {
       "hidden": true
     },
-    "Doron_Velta/Toolhead/MiniSB": {
+    "Toolhead/MiniSB": {
       "displayName": "Mini Stealthburner"
     },
-    "Doron_Velta/Toolhead/MiniSB/COMPOUND050": {
-      "displayName": "Mini Stealthburner Body"
-    },
-    "Doron_Velta/Toolhead/MiniSB/Dragon_HF": {
+    "Toolhead/MiniSB/Dragon_HF": {
       "displayName": "Dragon HF Hotend"
     },
-    "Doron_Velta/Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1_(2)": {
+    "Toolhead/MiniSB/Hotend_Mount_Revo_Voron_v1": {
       "displayName": "Revo Voron Hotend",
       "hidden": true
     },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB": {
+    "Toolhead/MiniSB/Klicky_PCB": {
       "displayName": "Klicky Probe"
     },
-    "Doron_Velta/Skirts/Bottom_Skirts/Bottom_Skirts_DV": {
+    "Skirts/Bottom_Skirts/Bottom_Skirts_DV": {
       "displayName": "Bottom Skirts (DV)"
     },
-    "Doron_Velta/Skirts/Bottom_Skirts/Bottom_Skirts_VD": {
+    "Skirts/Bottom_Skirts/Bottom_Skirts_VD": {
       "displayName": "Bottom Skirts (VD)",
       "hidden": true
     },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_DV": {
+    "Skirts/Top_Skirts/Top_Skirts_DV": {
       "displayName": "Top Skirts (DV)"
     },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD": {
+    "Skirts/Top_Skirts/Top_Skirts_VD": {
       "displayName": "Top Skirts (VD)",
       "hidden": true
     },
-    "Doron_Velta/Panels/Inner_Top_Pannel": {
+    "Panels/Inner_Top_Pannel": {
       "displayName": "Inner Top Panel"
     },
-    "Doron_Velta/Panels/Side_Panels003": {
+    "Panels/Side_Panels003": {
       "displayName": "Side Panels"
-    },
-    "Doron_Velta/Bed/COMPOUND054/COMPOUND051": {
-      "showInTree": false
-    },
-    "Doron_Velta/Bed/COMPOUND054/COMPOUND052": {
-      "showInTree": false
-    },
-    "Doron_Velta/Bed/COMPOUND054/COMPOUND053": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Arms/210mm_Tie_Rod/SOLID004": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Arms/210mm_Tie_Rod/Spherical_Bearing_Tie_Rod_End_v8/SOLID002": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Arms/210mm_Tie_Rod/Spherical_Bearing_Tie_Rod_End_v8_(1)/SOLID003": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Arms/210mm_Tie_Rod001/SOLID007": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Arms/210mm_Tie_Rod001/Spherical_Bearing_Tie_Rod_End_v009/SOLID005": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Arms/210mm_Tie_Rod001/Spherical_Bearing_Tie_Rod_End_v8_(1)001/SOLID006": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Bed_Mount/SOLID001": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block/COMPOUND003": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block/COMPOUND003/COMPOUND": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block/COMPOUND003/COMPOUND001": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block/COMPOUND003/COMPOUND002": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block001/COMPOUND007": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block001/COMPOUND007/COMPOUND004": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block001/COMPOUND007/COMPOUND005": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/Corner_Block001/COMPOUND007/COMPOUND006": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner/N17_Stepper_Mount/SOLID": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Arms001/210mm_Tie_Rod002/SOLID012": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Arms001/210mm_Tie_Rod002/Spherical_Bearing_Tie_Rod_End_v010/SOLID010": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Arms001/210mm_Tie_Rod002/Spherical_Bearing_Tie_Rod_End_v8_(1)002/SOLID011": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Arms001/210mm_Tie_Rod003/SOLID015": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Arms001/210mm_Tie_Rod003/Spherical_Bearing_Tie_Rod_End_v011/SOLID013": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Arms001/210mm_Tie_Rod003/Spherical_Bearing_Tie_Rod_End_v8_(1)003/SOLID014": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Bed_Mount001/SOLID009": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block002/COMPOUND011": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block002/COMPOUND011/COMPOUND008": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block002/COMPOUND011/COMPOUND009": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block002/COMPOUND011/COMPOUND010": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block003/COMPOUND015": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block003/COMPOUND015/COMPOUND012": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block003/COMPOUND015/COMPOUND013": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/Corner_Block003/COMPOUND015/COMPOUND014": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner001/N17_Stepper_Mount001/SOLID008": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Arms002/210mm_Tie_Rod004/SOLID020": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Arms002/210mm_Tie_Rod004/Spherical_Bearing_Tie_Rod_End_v012/SOLID018": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Arms002/210mm_Tie_Rod004/Spherical_Bearing_Tie_Rod_End_v8_(1)004/SOLID019": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Arms002/210mm_Tie_Rod005/SOLID023": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Arms002/210mm_Tie_Rod005/Spherical_Bearing_Tie_Rod_End_v013/SOLID021": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Arms002/210mm_Tie_Rod005/Spherical_Bearing_Tie_Rod_End_v8_(1)005/SOLID022": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Bed_Mount002/SOLID017": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block004/COMPOUND019": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block004/COMPOUND019/COMPOUND016": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block004/COMPOUND019/COMPOUND017": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block004/COMPOUND019/COMPOUND018": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block005/COMPOUND023": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block005/COMPOUND023/COMPOUND020": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block005/COMPOUND023/COMPOUND021": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/Corner_Block005/COMPOUND023/COMPOUND022": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners/Corner002/N17_Stepper_Mount002/SOLID016": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Hinge/COMPOUND028": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Hinge/COMPOUND028/COMPOUND024": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Hinge/COMPOUND028/COMPOUND025": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Hinge/COMPOUND028/COMPOUND026": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover/Mid_Corners_Hinge/COMPOUND028/COMPOUND027": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001/COMPOUND033": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001/COMPOUND033/COMPOUND029": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001/COMPOUND033/COMPOUND030": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001/COMPOUND033/COMPOUND031": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover001/Mid_Corners_Hinge001/COMPOUND033/COMPOUND032": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002/COMPOUND038": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002/COMPOUND038/COMPOUND034": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002/COMPOUND038/COMPOUND035": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002/COMPOUND038/COMPOUND036": {
-      "showInTree": false
-    },
-    "Doron_Velta/Corners_Covers/Corner_Cover002/Mid_Corners_Hinge002/COMPOUND038/COMPOUND037": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_DV/Top_Skirt_Fan_DV/COMPOUND066": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_DV/Top_Skirt_Fan_DV/COMPOUND066/COMPOUND062": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_DV/Top_Skirt_Fan_DV/COMPOUND066/COMPOUND063": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_DV/Top_Skirt_Fan_DV/COMPOUND066/COMPOUND064": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_DV/Top_Skirt_Fan_DV/COMPOUND066/COMPOUND065": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD/Top_Skirt_Fan_VD/COMPOUND061": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD/Top_Skirt_Fan_VD/COMPOUND061/COMPOUND055": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD/Top_Skirt_Fan_VD/COMPOUND061/COMPOUND056": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD/Top_Skirt_Fan_VD/COMPOUND061/COMPOUND057": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD/Top_Skirt_Fan_VD/COMPOUND061/COMPOUND058": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD/Top_Skirt_Fan_VD/COMPOUND061/COMPOUND059": {
-      "showInTree": false
-    },
-    "Doron_Velta/Skirts/Top_Skirts/Top_Skirts_VD/Top_Skirt_Fan_VD/COMPOUND061/COMPOUND060": {
-      "showInTree": false
-    },
-    "Doron_Velta/SpoolHolder/SOLID024": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/COMPOUND050/COMPOUND047": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/COMPOUND050/COMPOUND048": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/COMPOUND050/COMPOUND049": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/AB_mount_heatset/Magnets_(1)/COMPOUND046": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/AB_mount_heatset/Magnets_(1)/COMPOUND046/COMPOUND043": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/AB_mount_heatset/Magnets_(1)/COMPOUND046/COMPOUND044": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/AB_mount_heatset/Magnets_(1)/COMPOUND046/COMPOUND045": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/probe_heatset/Magnets/COMPOUND042": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/probe_heatset/Magnets/COMPOUND042/COMPOUND039": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/probe_heatset/Magnets/COMPOUND042/COMPOUND040": {
-      "showInTree": false
-    },
-    "Doron_Velta/Toolhead/MiniSB/Klicky_PCB/pcb_klicky_v1/probe_heatset/Magnets/COMPOUND042/COMPOUND041": {
-      "showInTree": false
     }
   }
 }
