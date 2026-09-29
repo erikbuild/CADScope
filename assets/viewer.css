@@ -34,7 +34,7 @@
   --overlay-bg-strong: rgba(26, 26, 46, 0.95);
   --badge-bg: rgba(10, 12, 16, 0.8);
   --selection-bg: rgba(51, 136, 255, 0.15);
-  --on-accent: #ffffff;
+  --on-accent: #1a1205; /* near-black on amber (7.4:1); white on #DE9400 is only 2.5:1 */
 }
 
 :root[data-theme="light"] {
@@ -46,6 +46,7 @@
 
   /* Accent colors - Positron orange, darkened for contrast on light surfaces */
   --accent: #9a6700;
+  --on-accent: #ffffff; /* white on #9a6700 is 4.9:1 */
   --accent-hover: #bf7d00;
   --accent-light: #de9400;
 
